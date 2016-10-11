@@ -1,0 +1,1 @@
+Gerard Rosell Cardús
