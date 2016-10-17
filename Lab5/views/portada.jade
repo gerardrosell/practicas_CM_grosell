@@ -1,0 +1,7 @@
+extends base
+include mixins/picture
+
+block content
+		- for (var i = 0; i < pics.lenght(); ++i) {
+            +picture(pics[i].image, pics[i].link, pics[i].name, pics[i].price)
+        - }
