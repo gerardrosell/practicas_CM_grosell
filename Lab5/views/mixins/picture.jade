@@ -1,0 +1,9 @@
+mixin picture(sourceImage, link, name, price)
+    article img1.imagen
+		p name
+		img(src=sourceImage, width="200" onclick="openInNewTab(sourceImage);")
+		br
+		input(type='button', value=name, onclick="comprar(name, price);")
+		a(href=link) name (specs)
+
+
