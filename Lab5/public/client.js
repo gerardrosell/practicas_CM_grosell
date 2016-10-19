@@ -4,11 +4,11 @@
 $(document).ready(function(){
 
     $('.img-rounded').mouseenter(function() {
-        $(this).animate({zoom:'1.1'},'fast');
+    	$(this).fadeTo("slow", 0.3);
         $(this).parent().addClass("selected");
     });
     $('.img-rounded').mouseout(function() {
-        $(this).animate({zoom:'1'},'fast');
+    	$(this).fadeTo("slow", 1);
         $(this).parent().removeClass("selected");
     });
 });

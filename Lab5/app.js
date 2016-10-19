@@ -24,14 +24,14 @@ app.use("/public",express.static('public'));
 
 //code raplace #1
 var pics = [
-	new Item("http://www.bmw.es/dam/brandBM/common/newvehicles/m-series/m2coupe/2015/gallery/m2-1920x1200-wallpaper-01.jpg.resource.1443019904378.jpg","http://www.bmw.es/home/vehiculos/M/m2-coupe/2015/presentacion.html",'BMW M2', 62899.99),
-	new Item("http://www.bmw.es/dam/brandBM/common/newvehicles/m-series/m3-sedan/2014/gallery/f80-02-1900x1200.jpg.resource.1391525794882.jpg","http://www.bmw.es/home/vehiculos/M/m2-coupe/2015/presentacion.html",'BMW M2', 62899.99),
-	new Item("http://www.bmw.es/dam/brandBM/common/newvehicles/m-series/m4-coupe/2014/gallery/m4-gts-1920x1200-03.jpg.resource.1443001488957.jpg","http://www.bmw.es/home/vehiculos/M/m2-coupe/2015/presentacion.html",'BMW M2', 62899.99),
-	new Item("http://www.bmw.es/dam/brandBM/common/newvehicles/m-series/m5-sedan/2013/gallery/BMW_M5_Sedan_Wallpaper_1920x1200_06.jpg.resource.1373899068283.jpg","http://www.bmw.es/home/vehiculos/M/m2-coupe/2015/presentacion.html",'BMW M2', 62899.99),
-	new Item("http://www.bmw.es/dam/brandBM/common/newvehicles/m-series/m6-grancoupe/2015/gallery/06-1920x1200.jpg.resource.1421937510526.jpg","http://www.bmw.es/home/vehiculos/M/m2-coupe/2015/presentacion.html",'BMW M2', 62899.99),
-	new Item("http://www.bmw.es/dam/brandBM/common/newvehicles/m-series/x5m/2014/images-and-videos/1920x1200_03.jpg.resource.1470324131286.jpg","http://www.bmw.es/home/vehiculos/M/m2-coupe/2015/presentacion.html",'BMW M2', 62899.99),
-	new Item("http://www.bmw.es/dam/brandBM/common/newvehicles/m-series/x6m/2014/images-and-videos/X6M-1920x1200-02.jpg.resource.1470210502292.jpg","http://www.bmw.es/home/vehiculos/M/m2-coupe/2015/presentacion.html",'BMW M2', 62899.99),
-	new Item("http://www.bmw.es/dam/brandBM/common/newvehicles/z-series/Roadster/2012/gallery/01-1920x1200-bmw-e89.jpg.resource.1373899686551.jpg","http://www.bmw.es/home/vehiculos/M/m2-coupe/2015/presentacion.html",'BMW M2', 62899.99)
+	new Item("http://www.bmw.es/dam/brandBM/common/newvehicles/m-series/m2coupe/2015/gallery/m2-1920x1200-wallpaper-01.jpg.resource.1443019904378.jpg","http://www.bmw.es/home/vehiculos/M/m2-coupe/2015/presentacion.html",'BMW M2', "62899.99"),
+	new Item("http://www.bmw.es/dam/brandBM/common/newvehicles/m-series/m3-sedan/2014/gallery/f80-02-1900x1200.jpg.resource.1391525794882.jpg","http://www.bmw.es/home/vehiculos/M/m2-coupe/2015/presentacion.html",'BMW M3', "62899.99"),
+	new Item("http://www.bmw.es/dam/brandBM/common/newvehicles/m-series/m4-coupe/2014/gallery/m4-gts-1920x1200-03.jpg.resource.1443001488957.jpg","http://www.bmw.es/home/vehiculos/M/m2-coupe/2015/presentacion.html",'BMW M4 coupé', "62899.99"),
+	new Item("http://www.bmw.es/dam/brandBM/common/newvehicles/m-series/m5-sedan/2013/gallery/BMW_M5_Sedan_Wallpaper_1920x1200_06.jpg.resource.1373899068283.jpg","http://www.bmw.es/home/vehiculos/M/m2-coupe/2015/presentacion.html",'BMW M5', "62899.99"),
+	new Item("http://www.bmw.es/dam/brandBM/common/newvehicles/m-series/m6-grancoupe/2015/gallery/06-1920x1200.jpg.resource.1421937510526.jpg","http://www.bmw.es/home/vehiculos/M/m2-coupe/2015/presentacion.html",'BMW M6', "62899.99"),
+	new Item("http://www.bmw.es/dam/brandBM/common/newvehicles/m-series/x5m/2014/images-and-videos/1920x1200_03.jpg.resource.1470324131286.jpg","http://www.bmw.es/home/vehiculos/M/m2-coupe/2015/presentacion.html",'BMW X5 M', "62899.99"),
+	new Item("http://www.bmw.es/dam/brandBM/common/newvehicles/m-series/x6m/2014/images-and-videos/X6M-1920x1200-02.jpg.resource.1470210502292.jpg","http://www.bmw.es/home/vehiculos/M/m2-coupe/2015/presentacion.html",'BMW X6 M', "62899.99"),
+	new Item("http://www.bmw.es/dam/brandBM/common/newvehicles/z-series/Roadster/2012/gallery/01-1920x1200-bmw-e89.jpg.resource.1373899686551.jpg","http://www.bmw.es/home/vehiculos/M/m2-coupe/2015/presentacion.html",'BMW Z4', "62899.99")
 	
 ];
 

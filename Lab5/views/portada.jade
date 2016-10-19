@@ -2,6 +2,7 @@ extends base
 include mixins/picture
 
 block content
-		- for (var i = 0; i < pics.lenght(); ++i) {
-            +picture(pics[i].image, pics[i].link, pics[i].name, pics[i].price)
-        - }
+	div.row
+		- for (var i = 0; i < 8; ++i) {
+			+picture(pics[i].image, pics[i].link, pics[i].name, pics[i].price)
+		- }
