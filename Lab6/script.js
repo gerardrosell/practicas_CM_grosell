@@ -162,14 +162,14 @@ $( document).ready(function(){
 		var us=seg%10;
 
 		//buida els dígits
-		ctx.fillStyle="#FFFFFF";
+		ctx.fillStyle="#004400";
 		cleardigit(pos1);
 		cleardigit(pos2);
 		cleardigit(pos3);
 		cleardigit(pos4);
 
 		//punts
-		ctx.fillStyle="#000000";
+		ctx.fillStyle="#FFFFFF";
 		ctx.fillRect(pospunts, 45, 5, 5);
 		ctx.fillRect(pospunts, 65, 5, 5);
 		ctx.stroke();
@@ -191,7 +191,7 @@ $( document).ready(function(){
 	
 });
 
-$( document).ready(function(){
+/*$( document).ready(function(){
 
 	var canvas=document.getElementById("canvas2");
 	var ctx=canvas.getContext("2d");
@@ -210,6 +210,50 @@ $( document).ready(function(){
 	};
 
 	//setInterval(render,1000);
+	
+});*/
+
+$( document).ready(function(){
+	var Pala = function(x_start){
+		this.color_pala = "#000000";
+		this.position = {x:x_start, y:0};
+		this.size = {w:20, h:100};
+	};
+
+	Pala.prototype.render = function(ctx){
+		ctx.fillStyle = this.color_pala;
+		ctx.fillRect(	this.position.x,
+						this.position.y,
+						this.size.w,
+						this.size.h)
+	};
+	var canvas = document.getElementById("canvas2");
+	var ctx = canvas.getContext("2d");
+	var pala_L = new Pala(10);
+	var pala_R = new Pala(canvas.width-30);
+	
+
+	function renderCamp(){
+	//pinta campo
+		var img = document.getElementById("imatge")
+	    var pat = ctx.createPattern(img, "repeat");
+	    ctx.rect(0, 0, canvas.width,canvas.height);
+	    ctx.fillStyle = pat;
+	    ctx.fill();
+	    ctx.fillStyle = "#000000";
+	    ctx.fillRect(399,0,2,400);	
+	    ctx.beginPath();
+		ctx.arc(400, 200, 80, 0, 2 * Math.PI);
+		ctx.arc(400, 200, 81, 0, 2 * Math.PI);
+		ctx.stroke();	
+
+		//pinta pala
+		/*ctx.clearRect(0, 0, canvas.width, canvas.height);*/
+		pala_L.render(ctx);
+		pala_R.render(ctx);
+	};
+
+	setInterval(renderCamp,100);
 	
 });
 
