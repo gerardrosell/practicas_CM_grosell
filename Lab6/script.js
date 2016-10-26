@@ -227,7 +227,7 @@ $( document ).ready(function() {
         this.position = {x:start_pos_x, y:start_pos_y};
         this.color_bola = "#FF0000";
         this.size = {w:12, h:12};
-        this.angle =  100;
+        this.angle =  120;
     }
     Bola.prototype.render = function(ctx2){
         ctx2.fillStyle = this.color_bola;
@@ -239,8 +239,8 @@ $( document ).ready(function() {
 
 	var canvas2 = document.getElementById("canvas2");
 	var ctx2 = canvas2.getContext("2d");
-	var pala_L = new Pala(10,canvas2.height);
-	var pala_R = new Pala(canvas2.width-20,canvas2.height);
+	var pala_L = new Pala(12,canvas2.height);
+	var pala_R = new Pala(canvas2.width-22,canvas2.height);
 
 	pala_L.setKeys(81,65); // Keys: Q, A
     pala_R.setKeys(87,83); // Keys: W, S
@@ -255,8 +255,24 @@ $( document ).ready(function() {
             bola.angle=180-bola.angle;
         }
 
-        bola.position.x += Math.sin(bola.angle * Math.PI / 180.0) * 4;
-        bola.position.y += Math.cos(bola.angle * Math.PI / 180.0) * 4;
+        if(bola.position.x < 25){
+        	if(bola.position.y > pala_L.position.y && bola.position.y < pala_L.position.y + pala_L.size.h){bola.angle=(180-bola.angle)+180;}
+        } else if(bola.position.x > canvas2.width-25-bola.size.w){
+        	if(bola.position.y > pala_R.position.y && bola.position.y < pala_R.position.y + pala_R.size.h){bola.angle=(180-bola.angle)+180;}
+        }
+
+        bola.position.x += Math.sin(bola.angle * Math.PI / 180.0) * 7;
+        bola.position.y += Math.cos(bola.angle * Math.PI / 180.0) * 7;
+
+        //quan la bola ha sortit del camp
+        if(bola.position.x < 24){
+        	bola.position.x = (canvas2.width/2);
+        	bola.position.y = (canvas2.height/2);
+
+        } else if(bola.position.x > canvas2.width-24-bola.size.w){
+        	bola.position.x = (canvas2.width/2);
+        	bola.position.y = (canvas2.height/2);
+        }
     }
 
 	function renderCamp(){
@@ -286,7 +302,7 @@ $( document ).ready(function() {
 		bola.render(ctx2);
 	};
 
-	setInterval(renderCamp,100);
+	setInterval(renderCamp,80);
 	
 });
 
