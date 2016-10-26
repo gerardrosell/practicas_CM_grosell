@@ -191,28 +191,6 @@ $( document).ready(function(){
 	
 });
 
-/*$( document).ready(function(){
-
-	var canvas=document.getElementById("canvas2");
-	var ctx=canvas.getContext("2d");
-	ctx.clearRect(0,0,canvas.width,canvas.height);
-	
-	var img = document.getElementById("imatge")
-    var pat = ctx.createPattern(img, "repeat");
-    ctx.rect(0, 0, canvas.width,canvas.height);
-    ctx.fillStyle = pat;
-    ctx.fill();
-    ctx.fillStyle = "#000000";
-    ctx.fillRect(399,0,2,400);
-	
-	function render(){
-				
-	};
-
-	//setInterval(render,1000);
-	
-});*/
-
 $( document ).ready(function() {
     var Pala = function(x_start,y_end){
         this.color_pala = "#000000";
@@ -249,7 +227,7 @@ $( document ).ready(function() {
         this.position = {x:start_pos_x, y:start_pos_y};
         this.color_bola = "#FF0000";
         this.size = {w:12, h:12};
-        this.angle =  170;
+        this.angle =  100;
     }
     Bola.prototype.render = function(ctx2){
         ctx2.fillStyle = this.color_bola;
@@ -262,7 +240,7 @@ $( document ).ready(function() {
 	var canvas2 = document.getElementById("canvas2");
 	var ctx2 = canvas2.getContext("2d");
 	var pala_L = new Pala(10,canvas2.height);
-	var pala_R = new Pala(canvas2.width-30,canvas2.height);
+	var pala_R = new Pala(canvas2.width-20,canvas2.height);
 
 	pala_L.setKeys(81,65); // Keys: Q, A
     pala_R.setKeys(87,83); // Keys: W, S
@@ -271,14 +249,14 @@ $( document ).ready(function() {
 
 	function updateBola(){
 
-        if(bola.position.y < 10){
-            bola.angle -=180;
-        } else if(bola.position.y > canvas2.height){
-            bola.angle -=180;
+        if(bola.position.y < 5){
+        	bola.angle=180-bola.angle;
+        } else if(bola.position.y > canvas2.height-5-bola.size.h){
+            bola.angle=180-bola.angle;
         }
 
-        bola.position.x += Math.sin(bola.angle * Math.PI / 180.0) * 3;
-        bola.position.y += Math.cos(bola.angle * Math.PI / 180.0) * 3;
+        bola.position.x += Math.sin(bola.angle * Math.PI / 180.0) * 4;
+        bola.position.y += Math.cos(bola.angle * Math.PI / 180.0) * 4;
     }
 
 	function renderCamp(){
