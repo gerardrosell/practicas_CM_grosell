@@ -1,6 +1,9 @@
-$( document).ready(function(){
+var joc_acabat=false;
 
+
+$( document).ready(function(){
 	var contador=60;
+
 	var canvas=document.getElementById("canvas1");
 	var ctx=canvas.getContext("2d");
 	ctx.clearRect(0,0,canvas.width,canvas.height);
@@ -152,7 +155,6 @@ $( document).ready(function(){
 		var pos3=pos2+55;
 		var pos4=pos3+50;
 		var pospunts=pos3+5;
-		
 		//separa els 4 dígits
 		var min=parseInt(contador/60);
 		var dm=parseInt(min/10);
@@ -182,16 +184,25 @@ $( document).ready(function(){
 
 
 		if(contador==0){
-			contador=60;
+			//contador=60;
+			ctx.fillStyle="#004400";
+			cleardigit(pos1);
+			cleardigit(pos2);
+			cleardigit(pos3);
+			cleardigit(pos4);
+
+			joc_acabat=true;
 		}
+		if(joc_acabat){clearInterval(refreshIntervalId1)}
 		contador=contador-1;
 	};
 
-	setInterval(renderTimer,1000);
+	var refreshIntervalId1 = setInterval(renderTimer,1000);	
 	
 });
 
 $( document ).ready(function() {
+	var contador=6100;
 	var marcador1=0;
 	var marcador2=0;
     var Pala = function(x_start,y_end){
@@ -227,7 +238,7 @@ $( document ).ready(function() {
 
     var Bola = function(start_pos_x, start_pos_y){
         this.position = {x:start_pos_x, y:start_pos_y};
-        this.color_bola = "#FF0000";
+        this.color_bola = "#FFFF00";
         this.size = {w:12, h:12};
         this.angle =  120;
     }
@@ -258,13 +269,13 @@ $( document ).ready(function() {
         }
 
         if(bola.position.x < 25){
-        	if(bola.position.y > pala_L.position.y && bola.position.y < pala_L.position.y + pala_L.size.h){bola.angle=(180-bola.angle)+180;}
+        	if(bola.position.y > pala_L.position.y-bola.size.h && bola.position.y < pala_L.position.y + pala_L.size.h){bola.angle=(180-bola.angle)+180;}
         } else if(bola.position.x > canvas2.width-25-bola.size.w){
-        	if(bola.position.y > pala_R.position.y && bola.position.y < pala_R.position.y + pala_R.size.h){bola.angle=(180-bola.angle)+180;}
+        	if(bola.position.y > pala_R.position.y-bola.size.h && bola.position.y < pala_R.position.y + pala_R.size.h){bola.angle=(180-bola.angle)+180;}
         }
 
-        bola.position.x += Math.sin(bola.angle * Math.PI / 180.0) * 7;
-        bola.position.y += Math.cos(bola.angle * Math.PI / 180.0) * 7;
+        bola.position.x += Math.sin(bola.angle * Math.PI / 180.0);
+        bola.position.y += Math.cos(bola.angle * Math.PI / 180.0);
 
         //quan la bola ha sortit del camp
         if(bola.position.x < 24){
@@ -273,6 +284,10 @@ $( document ).ready(function() {
         	//marcador equip 2 + 1
         	marcador2+=1
         	document.getElementById("marcador2").innerHTML=marcador2;
+        	bola.angle=Math.floor(Math.random()*120+210);
+        	if(bola.angle==0 || bola.angle==180){
+        		bola.angle+=30;
+        	}
 
 
         } else if(bola.position.x > canvas2.width-24-bola.size.w){
@@ -281,6 +296,10 @@ $( document ).ready(function() {
         	//marcador equip 1 + 1
         	marcador1+=1;
         	document.getElementById("marcador1").innerHTML=marcador1;
+        	bola.angle=Math.floor(Math.random()*120+30);
+        	if(bola.angle==0 || bola.angle==180){
+        		bola.angle+=30;
+        	}
         }
     }
 
@@ -309,9 +328,24 @@ $( document ).ready(function() {
 		pala_L.render(ctx2);
 		pala_R.render(ctx2);
 		bola.render(ctx2);
+		contador-=2;
+		if(contador==0){
+			joc_acabat=true;
+			ctx2.clearRect(0, 0, canvas2.width, canvas2.height);
+			
+			//pinta campo
+			var img = document.getElementById("imatge")
+		    var pat = ctx2.createPattern(img, "repeat");
+		    ctx2.rect(0, 0, canvas2.width,canvas2.height);
+		    ctx2.fillStyle = pat;
+		    ctx2.fill();
+
+		}
+		if(joc_acabat){clearInterval(refreshIntervalId2);}
 	};
 
-	setInterval(renderCamp,80);
+	var refreshIntervalId2 = setInterval(renderCamp,20);
+	
 	
 });
 
