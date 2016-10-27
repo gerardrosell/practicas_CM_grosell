@@ -7,7 +7,7 @@
 	padding: 5px;
 	margin: 5px;
 	background-color: black;
-	border-radius: 10px 0px 10px 0px;
+	border-radius: 10px 10px 10px 10px;
 }
 
 .menu{
@@ -22,4 +22,16 @@
 
 .barra{
 	background-color: #00FF00;
+}
+
+.marcador{
+	display: inline-block;
+	color: white;
+	font-size: 40px;
+	padding: 5px;
+	margin-right: 100px;
+	margin-left: 100px;
+	background-color: black;
+	border-radius: 10px 10px 10px 10px;
+
 }

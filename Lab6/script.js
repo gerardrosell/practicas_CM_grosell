@@ -192,6 +192,8 @@ $( document).ready(function(){
 });
 
 $( document ).ready(function() {
+	var marcador1=0;
+	var marcador2=0;
     var Pala = function(x_start,y_end){
         this.color_pala = "#000000";
         this.position = {x:x_start, y:0};
@@ -268,10 +270,17 @@ $( document ).ready(function() {
         if(bola.position.x < 24){
         	bola.position.x = (canvas2.width/2);
         	bola.position.y = (canvas2.height/2);
+        	//marcador equip 2 + 1
+        	marcador2+=1
+        	document.getElementById("marcador2").innerHTML=marcador2;
+
 
         } else if(bola.position.x > canvas2.width-24-bola.size.w){
         	bola.position.x = (canvas2.width/2);
         	bola.position.y = (canvas2.height/2);
+        	//marcador equip 1 + 1
+        	marcador1+=1;
+        	document.getElementById("marcador1").innerHTML=marcador1;
         }
     }
 
