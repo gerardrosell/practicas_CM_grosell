@@ -2,6 +2,14 @@ var joc_acabat=false;
 
 
 $( document).ready(function(){
+	this.reset1=function(){
+		contador=60;
+		clearInterval(refreshIntervalId1);
+		refreshIntervalId1=setInterval(renderTimer,1000);
+		joc_acabat=false;
+	}
+
+	reset1=this.reset1;
 	var contador=60;
 
 	var canvas=document.getElementById("canvas1");
@@ -202,6 +210,19 @@ $( document).ready(function(){
 });
 
 $( document ).ready(function() {
+	this.reset2=function(){
+		contador=6100;
+		clearInterval(refreshIntervalId2);
+		refreshIntervalId2=setInterval(renderCamp,20);
+		joc_acabat=false;
+		bola.position.x = (canvas2.width/2);
+        bola.position.y = (canvas2.height/2);
+		marcador1=0;
+		marcador2=0;
+		document.getElementById("marcador2").innerHTML=marcador2;
+		document.getElementById("marcador1").innerHTML=marcador1;
+	}
+	reset2=this.reset2;
 	var contador=6100;
 	var marcador1=0;
 	var marcador2=0;
@@ -347,3 +368,7 @@ $( document ).ready(function() {
 	
 });
 
+function resetJoc(){
+	new reset1();
+	new reset2();
+}

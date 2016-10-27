@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Title</title>
+	<title>Ping Pong web</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="script.js"></script>
 	<link rel="stylesheet" href="styles.css" type="text/css">
 	<img src="http://images.quebarato.com.ec/T440x/cesped+sintetico+canchas+de+futbol+3113240+0983734605+quito+pichincha+ecuador__B4F577_6.jpg" id="imatge" width="0" height="0">
 </head>
 <body>
-	<div style="margin-left: 287px;">
+	<div class="capçalera">
 		<canvas id="canvas1" width="225" height="115" style="border:5px solid #000000; background-color: #004400;"></canvas>
+		<button class="btn_reset" onclick="resetJoc();">Torna a Jugar</button>
 	</div>
 	<div class="menu">
 		<div class="marcador" id="marcador1"> 0 </div>

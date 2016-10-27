@@ -10,14 +10,27 @@
 	border-radius: 10px 10px 10px 10px;
 }
 
-.menu{
+.capçalera{
 	padding: 10px;
-	background-color: #444444;
+	background: -webkit-linear-gradient(#BBBBBB, #222222);
+    background: -o-linear-gradient(#BBBBBB, #222222);
+    background: -moz-linear-gradient(#BBBBBB, #222222); 
+    background: linear-gradient(#BBBBBB, #222222); 
 	width: 790px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	border-radius: 30px 30px 0px 0px;
+	
+}
+
+.menu{
+	padding: 10px;
+	background-color: #222222;
+	width: 790px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .barra{
@@ -34,4 +47,17 @@
 	background-color: black;
 	border-radius: 10px 10px 10px 10px;
 
+}
+
+.btn_reset {
+    background-color: #004400; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    margin-left: 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    font-style: bold;
 }
