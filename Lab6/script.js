@@ -274,29 +274,29 @@ $( document ).ready(function() {
         	if(bola.position.y > pala_R.position.y-bola.size.h && bola.position.y < pala_R.position.y + pala_R.size.h){bola.angle=(180-bola.angle)+180;}
         }
 
-        bola.position.x += Math.sin(bola.angle * Math.PI / 180.0);
-        bola.position.y += Math.cos(bola.angle * Math.PI / 180.0);
+        bola.position.x += Math.sin(bola.angle * Math.PI / 180.0)*2;
+        bola.position.y += Math.cos(bola.angle * Math.PI / 180.0)*2;
 
         //quan la bola ha sortit del camp
-        if(bola.position.x < 24){
+        if(bola.position.x < 20){
         	bola.position.x = (canvas2.width/2);
         	bola.position.y = (canvas2.height/2);
         	//marcador equip 2 + 1
         	marcador2+=1
         	document.getElementById("marcador2").innerHTML=marcador2;
-        	bola.angle=Math.floor(Math.random()*120+210);
+        	bola.angle=Math.floor(Math.random()*120+30);
         	if(bola.angle==0 || bola.angle==180){
         		bola.angle+=30;
         	}
 
 
-        } else if(bola.position.x > canvas2.width-24-bola.size.w){
+        } else if(bola.position.x > canvas2.width-20-bola.size.w){
         	bola.position.x = (canvas2.width/2);
         	bola.position.y = (canvas2.height/2);
         	//marcador equip 1 + 1
         	marcador1+=1;
         	document.getElementById("marcador1").innerHTML=marcador1;
-        	bola.angle=Math.floor(Math.random()*120+30);
+        	bola.angle=Math.floor(Math.random()*120+210);
         	if(bola.angle==0 || bola.angle==180){
         		bola.angle+=30;
         	}
@@ -323,7 +323,6 @@ $( document ).ready(function() {
 
 		//pinta pala
 		updateBola();
-		//ctx2.rect(0, 0, canvas2.width,canvas2.height);
 		
 		pala_L.render(ctx2);
 		pala_R.render(ctx2);
@@ -331,17 +330,16 @@ $( document ).ready(function() {
 		contador-=2;
 		if(contador==0){
 			joc_acabat=true;
+			if(joc_acabat){clearInterval(refreshIntervalId2);}
 			ctx2.clearRect(0, 0, canvas2.width, canvas2.height);
 			
 			//pinta campo
-			var img = document.getElementById("imatge")
-		    var pat = ctx2.createPattern(img, "repeat");
-		    ctx2.rect(0, 0, canvas2.width,canvas2.height);
-		    ctx2.fillStyle = pat;
-		    ctx2.fill();
-
+			ctx2.fillStyle = "#444444";
+		    ctx2.fillRect(0, 0, canvas2.width,canvas2.height);
+		    ctx2.font = "80px Verdana";
+			ctx2.fillStyle = "#FFFF00";
+			ctx2.fillText("Final del Joc!", 185,170);
 		}
-		if(joc_acabat){clearInterval(refreshIntervalId2);}
 	};
 
 	var refreshIntervalId2 = setInterval(renderCamp,20);
