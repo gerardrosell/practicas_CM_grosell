@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Ping Pong web</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="script.js"></script>
+	<link rel="stylesheet" href="styles.css" type="text/css">
+	<img src="http://images.quebarato.com.ec/T440x/cesped+sintetico+canchas+de+futbol+3113240+0983734605+quito+pichincha+ecuador__B4F577_6.jpg" id="imatge" width="0" height="0">
+</head>
+<body>
+	<div class="capçalera">
+		<canvas id="canvas1" width="225" height="115" style="border:5px solid #000000; background-color: #004400;"></canvas>
+		<button class="btn_reset" onclick="resetJoc();">Torna a Jugar</button>
+	</div>
+	<div class="menu">
+		<div class="marcador" id="marcador1"> 0 </div>
+		<div><img src="http://www.iconarchive.com/download/i38830/google/chrome/Google-Chrome.ico" width="30" height="30"></div>
+    	<div class="equip"> Chrome Team </div>
+    	<div class="equip"> FireFox Team </div>
+    	<div><img src="http://blog.desdelinux.net/wp-content/uploads/2013/06/New_Firefox_Logo.png" width="30" height="30"></div>
+    	<div class="marcador" id="marcador2"> 0 </div>
+	</div>
+	<div>
+		<canvas id="canvas2" width="800" height="400" style="border:5px solid #000000;"></canvas>
+	</div>
+</body>
+</html>
