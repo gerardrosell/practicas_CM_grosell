@@ -217,16 +217,18 @@ $( document ).ready(function() {
 		joc_acabat=false;
 		bola.position.x = (canvas2.width/2);
         bola.position.y = (canvas2.height/2);
-		marcador1=0;
-		marcador2=0;
-		document.getElementById("marcador2").innerHTML=marcador2;
-		document.getElementById("marcador1").innerHTML=marcador1;
+		Marcador.local=0;
+		Marcador.visitante=0;
+		document.getElementById("marcador2").innerHTML=Marcador.local;
+		document.getElementById("marcador1").innerHTML=Marcador.visitante;
 	}
 	reset2=this.reset2;
 	var contador=6100;
-	var marcador1=0;
-	var marcador2=0;
-    var Pala = function(x_start,y_end){
+	var Marcador={
+		local:0,
+		visitante:0,
+	}
+	var Pala = function(x_start,y_end){
         this.color_pala = "#000000";
         this.position = {x:x_start, y:0};
         this.size = {w:10, h:100};
@@ -303,8 +305,8 @@ $( document ).ready(function() {
         	bola.position.x = (canvas2.width/2);
         	bola.position.y = (canvas2.height/2);
         	//marcador equip 2 + 1
-        	marcador2+=1
-        	document.getElementById("marcador2").innerHTML=marcador2;
+        	Marcador.visitante+=1
+        	document.getElementById("marcador2").innerHTML=Marcador.visitante;
         	bola.angle=Math.floor(Math.random()*120+30);
         	if(bola.angle==0 || bola.angle==180){
         		bola.angle+=30;
@@ -315,8 +317,8 @@ $( document ).ready(function() {
         	bola.position.x = (canvas2.width/2);
         	bola.position.y = (canvas2.height/2);
         	//marcador equip 1 + 1
-        	marcador1+=1;
-        	document.getElementById("marcador1").innerHTML=marcador1;
+        	Marcador.local+=1;
+        	document.getElementById("marcador1").innerHTML=Marcador.local;
         	bola.angle=Math.floor(Math.random()*120+210);
         	if(bola.angle==0 || bola.angle==180){
         		bola.angle+=30;
