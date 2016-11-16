@@ -226,7 +226,7 @@ $( document ).ready(function() {
 	var contador=6100;
 	var Marcador={
 		local:0,
-		visitante:0,
+		visitante:0
 	}
 	var Pala = function(x_start,y_end){
         this.color_pala = "#000000";
@@ -273,6 +273,16 @@ $( document ).ready(function() {
                         this.size.h);
     }
 
+    var socket = io();
+
+    socket.on('actualitza-marcador', function(newScore){
+      Marcador.local = newScore.local;
+      Marcador.visitante = newScore.visitante;
+      document.getElementById("marcador2").innerHTML=Marcador.visitante;
+      document.getElementById("marcador1").innerHTML=Marcador.local;
+      CambiaMarcador(ctx);
+    });
+
 	var canvas2 = document.getElementById("canvas2");
 	var ctx2 = canvas2.getContext("2d");
 	var pala_L = new Pala(12,canvas2.height);
@@ -302,11 +312,12 @@ $( document ).ready(function() {
 
         //quan la bola ha sortit del camp
         if(bola.position.x < 20){
+        	socket.emit('Gol-visitant');
         	bola.position.x = (canvas2.width/2);
         	bola.position.y = (canvas2.height/2);
         	//marcador equip 2 + 1
-        	Marcador.visitante+=1
-        	document.getElementById("marcador2").innerHTML=Marcador.visitante;
+        	//Marcador.visitante+=1
+        	//document.getElementById("marcador2").innerHTML=Marcador.visitante;
         	bola.angle=Math.floor(Math.random()*120+30);
         	if(bola.angle==0 || bola.angle==180){
         		bola.angle+=30;
@@ -314,11 +325,12 @@ $( document ).ready(function() {
 
 
         } else if(bola.position.x > canvas2.width-20-bola.size.w){
+        	socket.emit('Gol-local');
         	bola.position.x = (canvas2.width/2);
         	bola.position.y = (canvas2.height/2);
         	//marcador equip 1 + 1
-        	Marcador.local+=1;
-        	document.getElementById("marcador1").innerHTML=Marcador.local;
+        	//Marcador.local+=1;
+        	//document.getElementById("marcador1").innerHTML=Marcador.local;
         	bola.angle=Math.floor(Math.random()*120+210);
         	if(bola.angle==0 || bola.angle==180){
         		bola.angle+=30;
