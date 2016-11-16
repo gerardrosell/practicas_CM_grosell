@@ -226,7 +226,7 @@ $( document ).ready(function() {
 	var contador=6100;
 	var Marcador={
 		local:0,
-		visitante:0
+		visitante:0,
 	}
 	var Pala = function(x_start,y_end){
         this.color_pala = "#000000";
